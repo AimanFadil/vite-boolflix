@@ -14,7 +14,7 @@ export default {
 </script>
 <template lang="">
   <div>
-    
+    <Header/>
   </div>
 </template>
 

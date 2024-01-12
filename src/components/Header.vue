@@ -9,13 +9,32 @@ export default {
 }
 </script>
 <template lang="">
-  <div>
     <header>
-       
+       <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="red m-4">BOOLFLIX</h1>
+            </div>
+            <div class="col-6">
+                <form class="d-flex m-4">
+                    <input class="form-control" type="text" placeholder="Inserisci Titolo" >
+                    <button type="submit">Conferma</button>
+                </form>
+            </div>
+        </div>
+       </div>
     </header>
-  </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/generals.scss';
+
+header {
+    background-color: black;
+    height: 100px;
+
+    .red {
+        color: red;
+    }
+}
 </style>
