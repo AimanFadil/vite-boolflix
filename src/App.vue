@@ -18,13 +18,16 @@ export default {
 
       let filmUrl = store.endpoint
 
-      if (store.film != '') {
+      if (store.film !== '') {
         filmUrl += `${store.film}`
         console.log(filmUrl)
+
       }
 
-      axios.get(this.store.endpoint).then((response) => {
+      axios.get(filmUrl).then((response) => {
         this.store.films = response.data.results
+        console.log(this.store.films)
+
       })
     },
 

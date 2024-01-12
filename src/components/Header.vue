@@ -17,10 +17,10 @@ export default {
                 <h1 class="red m-4">BOOLFLIX</h1>
             </div>
             <div class="col-6">
-                <form class="d-flex m-4">
+                <div class="d-flex m-4">
                     <input class="form-control" type="text" placeholder="Inserisci Titolo" id="film" v-model="store.film" >
                     <button  class="btn btn-danger" @click="$emit('cerca')">CERCA</button>
-                </form>
+                </div>
             </div>
         </div>
        </div>
