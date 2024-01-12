@@ -2,11 +2,13 @@
 import { store } from './store.js';
 import Header from './components/Header.vue'
 import ContFilms from './components/ContFilms.vue';
+import ContSeries from './components/ContSeries.vue';
 import axios from 'axios';
 export default {
   components: {
     Header,
-    ContFilms
+    ContFilms,
+    ContSeries
   },
   data() {
     return {
@@ -20,27 +22,44 @@ export default {
 
       if (store.film !== '') {
         filmUrl += `${store.film}`
-        console.log(filmUrl)
+
 
       }
 
       axios.get(filmUrl).then((response) => {
         this.store.films = response.data.results
-        console.log(this.store.films)
+
 
       })
+
+      let serieUrl = store.endpointSerie
+
+      if (store.film !== '') {
+        serieUrl += `${store.film}`
+
+
+      }
+      axios.get(serieUrl).then((response) => {
+        this.store.series = response.data.results
+        console.log(serieUrl)
+
+      })
+
     },
+
 
   },
   created() {
     this.getFilms()
+
   },
 }
 </script>
 <template lang="">
   <div>
-    <Header @cerca="getFilms"/>
+    <Header @cerca="getFilms" />
     <ContFilms />
+    <ContSeries />
   </div>
 </template>
 

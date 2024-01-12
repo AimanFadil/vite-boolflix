@@ -2,7 +2,7 @@
 import { store } from '../store.js';
 import CountryFlag from 'vue-country-flag-next'
 export default {
-    name: 'ContFilms',
+    name: 'ContSeries',
     components: {
         CountryFlag
     },
@@ -20,14 +20,17 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-12" >
-                <div class="content">
-                    <div class="film text-center" v-for="film, index in store.films" :key="index">
+                <div class="content text-center">
+                    <div class="col-12">
+                        <h1 class="">SERIE TV</h1> 
+                    </div>
+                    <div class="film text-center" v-for="serie, index in store.series" :key="index">
                         <!-- <img :src="" > -->
                         <div class="testo">
-                            <p >{{ film.title }}</p>
-                            <p>{{ film.original_title }}</p>
-                            <country-flag :country='film.original_language' size='normal'/>
-                            <p>{{ film.vote_average }}</p>
+                            <p >{{ serie.name }}</p>
+                            <p>{{ serie.original_name }}</p>
+                            <country-flag :country='serie.original_language' size='normal'/>
+                            <p>{{ serie.vote_average }}</p>
                         </div>
                     </div>
                 </div>
