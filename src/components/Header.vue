@@ -1,9 +1,10 @@
 <script>
+import { store } from '../store.js';
 export default {
     name: 'Header',
     data() {
         return {
-
+            store
         }
     }
 }
@@ -17,8 +18,8 @@ export default {
             </div>
             <div class="col-6">
                 <form class="d-flex m-4">
-                    <input class="form-control" type="text" placeholder="Inserisci Titolo" >
-                    <button type="submit">Conferma</button>
+                    <input class="form-control" type="text" placeholder="Inserisci Titolo" id="film" v-model="store.film" >
+                    <button  class="btn btn-danger" @click="$emit('cerca')">CERCA</button>
                 </form>
             </div>
         </div>
@@ -35,6 +36,11 @@ header {
 
     .red {
         color: red;
+    }
+
+    .pulsante {
+        width: fit-content;
+        height: fit-content;
     }
 }
 </style>
