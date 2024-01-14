@@ -27,7 +27,10 @@ export default {
                             <p >{{ film.title }}</p>
                             <p>{{ film.original_title }}</p>
                             <country-flag :country='film.original_language' size='normal'/>
-                            <p>{{ film.vote_average }}</p>
+                            <i v-for="n in 5" :key="n" class="fa-star" :class="{ 
+                                'fa-solid': n <= Math.round(film.vote_average / 2), 
+                                'fa-regular': n > Math.round(film.vote_average / 2) }" >
+                            </i>
                         </div>
                     </div>
                 </div>
@@ -35,6 +38,7 @@ export default {
         </div>
     </div>
   </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </template>
 
 <style lang="scss" scoped>
@@ -56,7 +60,7 @@ export default {
         .testo {
             background-color: black;
             line-height: 100px;
-            height: 300px;
+            height: 400px;
             color: white;
         }
 

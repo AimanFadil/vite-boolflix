@@ -46,6 +46,11 @@ export default {
 
 
     },
+    /*  numCinque(numero) {
+       const arrotonda = Math.ceil(numero);
+       return Math.ceil(arrotonda / 2);
+     } */
+
 
 
 
