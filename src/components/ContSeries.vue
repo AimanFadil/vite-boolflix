@@ -25,7 +25,7 @@ export default {
                         <h1 class="">SERIE TV</h1> 
                     </div>
                     <div class="film text-center" v-for="serie, index in store.series" :key="index">
-                        <!-- <img :src="" > -->
+                        <img :src="`https://image.tmdb.org/t/p/w185/${serie.poster_path}`">
                         <div class="testo">
                             <p >{{ serie.name }}</p>
                             <p>{{ serie.original_name }}</p>

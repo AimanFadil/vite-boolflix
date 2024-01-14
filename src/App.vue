@@ -41,11 +41,12 @@ export default {
       }
       axios.get(serieUrl).then((response) => {
         this.store.series = response.data.results
-        console.log(serieUrl)
-
       })
 
+
+
     },
+
 
 
   },

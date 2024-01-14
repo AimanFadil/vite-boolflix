@@ -22,7 +22,7 @@ export default {
             <div class="col-12" >
                 <div class="content">
                     <div class="film text-center" v-for="film, index in store.films" :key="index">
-                        <!-- <img :src="" > -->
+                        <img :src="`https://image.tmdb.org/t/p/w185/${film.poster_path}`">
                         <div class="testo">
                             <p >{{ film.title }}</p>
                             <p>{{ film.original_title }}</p>
