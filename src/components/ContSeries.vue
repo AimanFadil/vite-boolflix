@@ -17,12 +17,12 @@ export default {
 </script>
 <template lang="">
   <div>
-    <div class="container-big">
+    <div class="container-bg">
         <div class="row">
             <div class="col-12" >
-                <div class="content text-center">
+                <div class="content ">
                     <div class="col-12">
-                        <h1 class="">SERIE TV</h1> 
+                        <h1 class="text-white float-start p-5">SERIE TV</h1> 
                     </div>
                     <div class="film text-center" v-for="serie, index in store.series" :key="index">
                         <img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`">
@@ -53,32 +53,35 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     margin: 10px;
+    border: solid 2px white;
 
     img {
+        width: 342px;
         height: 513px;
-        max-width: 342px;
-        position: relative;
     }
 
 
     .film {
         width: calc(100% / 5 - 10px);
-
+        height: 513px;
         padding: 10px;
         margin: 10px;
 
         .testo {
             background-color: black;
             padding: 15px;
-            width: 342px;
+            width: 345px;
             height: 513px;
             color: white;
-            position: absolute;
-            top: 130px;
+            position: relative;
+            bottom: 513px;
+            left: 0;
             opacity: 0;
 
             &:hover {
                 opacity: 1;
+                transition: 3s;
+                transform: rotateY(360deg);
 
             }
 
