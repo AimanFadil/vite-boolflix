@@ -18,6 +18,7 @@ export default {
   methods: {
     getFilms() {
 
+
       let filmUrl = store.endpoint
 
       if (store.film !== '') {
@@ -46,10 +47,6 @@ export default {
 
 
     },
-    /*  numCinque(numero) {
-       const arrotonda = Math.ceil(numero);
-       return Math.ceil(arrotonda / 2);
-     } */
 
 
 

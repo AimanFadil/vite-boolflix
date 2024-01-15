@@ -17,7 +17,7 @@ export default {
 </script>
 <template lang="">
   <div>
-    <div class="container">
+    <div class="container-big">
         <div class="row">
             <div class="col-12" >
                 <div class="content text-center">
@@ -25,15 +25,16 @@ export default {
                         <h1 class="">SERIE TV</h1> 
                     </div>
                     <div class="film text-center" v-for="serie, index in store.series" :key="index">
-                        <img :src="`https://image.tmdb.org/t/p/w185/${serie.poster_path}`">
+                        <img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`">
                         <div class="testo">
-                            <p >{{ serie.name }}</p>
-                            <p>{{ serie.original_name }}</p>
-                            <country-flag :country='serie.original_language' size='normal'/>
+                            <h3 >{{ serie.name }}</h3>
+                            <h4>{{ serie.original_name }}</h4>
+                            <div><country-flag :country='serie.original_language' size='normal'/></div>
                             <i v-for="n in 5" :key="n" class="fa-star" :class="{ 
                                 'fa-solid': n <= Math.round(serie.vote_average / 2), 
                                 'fa-regular': n > Math.round(serie.vote_average / 2) }" >
                             </i>
+                            <p>"{{ serie.overview }}"</p>
                         </div>
                     </div>
                 </div>
@@ -53,18 +54,35 @@ export default {
     flex-wrap: wrap;
     margin: 10px;
 
+    img {
+        height: 513px;
+        max-width: 342px;
+        position: relative;
+    }
+
 
     .film {
-        width: calc(100% / 6 - 10px);
+        width: calc(100% / 5 - 10px);
 
         padding: 10px;
         margin: 10px;
 
         .testo {
             background-color: black;
-            line-height: 100px;
-            height: 400px;
+            padding: 15px;
+            width: 342px;
+            height: 513px;
             color: white;
+            position: absolute;
+            top: 130px;
+            opacity: 0;
+
+            &:hover {
+                opacity: 1;
+
+            }
+
+
         }
 
 

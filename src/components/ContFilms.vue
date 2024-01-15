@@ -17,20 +17,21 @@ export default {
 </script>
 <template lang="">
   <div>
-    <div class="container">
+    <div class="container_big">
         <div class="row">
             <div class="col-12" >
                 <div class="content">
                     <div class="film text-center" v-for="film, index in store.films" :key="index">
-                        <img :src="`https://image.tmdb.org/t/p/w185/${film.poster_path}`">
+                        <img :src="`https://image.tmdb.org/t/p/w342/${film.poster_path}`">
                         <div class="testo">
-                            <p >{{ film.title }}</p>
-                            <p>{{ film.original_title }}</p>
-                            <country-flag :country='film.original_language' size='normal'/>
+                            <h3 >{{ film.title }}</h3>
+                            <h4>{{ film.original_title }}</h4>
+                            <div><country-flag :country='film.original_language' size='normal'/></div>
                             <i v-for="n in 5" :key="n" class="fa-star" :class="{ 
                                 'fa-solid': n <= Math.round(film.vote_average / 2), 
                                 'fa-regular': n > Math.round(film.vote_average / 2) }" >
                             </i>
+                            <p>"{{ film.overview }}"</p>
                         </div>
                     </div>
                 </div>
@@ -50,18 +51,40 @@ export default {
     flex-wrap: wrap;
     margin: 10px;
 
+    img {
+        height: 513px;
+        max-width: 342px;
+        position: relative;
+
+
+    }
+
 
     .film {
-        width: calc(100% / 6 - 10px);
+        width: calc(100% / 5 - 10px);
 
         padding: 10px;
         margin: 10px;
 
         .testo {
             background-color: black;
-            line-height: 100px;
-            height: 400px;
+            padding: 15px;
+            width: 342px;
+            height: 513px;
             color: white;
+            position: absolute;
+            top: 130px;
+            opacity: 0;
+
+            &:hover {
+                opacity: 1;
+
+
+
+
+            }
+
+
         }
 
 
