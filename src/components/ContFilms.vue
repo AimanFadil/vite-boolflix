@@ -20,20 +20,23 @@ export default {
     <div class="container-bg">
         <div class="row">
             <div class="col-12" >
-                <div class="content te">
+                <div class="content " v-if="store.films.length > 0">
                     <div class="col-12">
-                        <h1 class="text-white float-start p-5">FILM</h1> 
+                        <h1  class="text-white float-start p-5">FILM</h1> 
                     </div>
                     <div class="film text-center" v-for="film, index in store.films" :key="index">
                         <img  :src="`https://image.tmdb.org/t/p/w342/${film.poster_path}`">
                         <div class="testo">
-                            <h3 >{{ film.title }}</h3>
-                            <h4>{{ film.original_title }}</h4>
-                            <div><country-flag :country='film.original_language' size='normal'/></div>
-                            <i v-for="n in 5" :key="n" class="fa-star" :class="{ 
-                                'fa-solid': n <= Math.round(film.vote_average / 2), 
-                                'fa-regular': n > Math.round(film.vote_average / 2) }" >
-                            </i>
+                            <h3 >TITLE: "{{ film.title }}"</h3>
+                            <h4>ORIGINAL TITLE: {{ film.original_title }}</h4>
+                            <div> <country-flag :country='film.original_language' size='normal'/></div>
+                            <div>
+                                <span>RATING: </span>
+                                <i v-for="n in 5" :key="n" class="fa-star" :class="{ 
+                                    'fa-solid': n <= Math.round(film.vote_average / 2), 
+                                    'fa-regular': n > Math.round(film.vote_average / 2) }" >
+                                </i>
+                            </div>
                             <p>"{{ film.overview }}"</p>
                         </div>
                     </div>
@@ -48,52 +51,66 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/generals.scss';
 
-.content {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 10px;
-    border: solid 2px white;
-
-    img {
-        width: 342px;
-        height: 513px;
-    }
+.container-bg {
 
 
-    .film {
-        width: calc(100% / 5 - 10px);
-        height: 513px;
-        padding: 10px;
+
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         margin: 10px;
+        border: solid 2px red;
 
-        .testo {
-            background-color: black;
-            padding: 15px;
-            width: 345px;
+
+        img {
+            width: 342px;
             height: 513px;
-            color: white;
-            position: relative;
-            bottom: 513px;
-            left: 0;
-            opacity: 0;
+            border: solid 5px white;
 
-            &:hover {
-                opacity: 1;
-                transition: 3s;
-                transform: rotateY(360deg);
+        }
+
+        .red {
+            color: red;
+        }
+
+        .fa-star {
+            color: goldenrod;
+        }
 
 
+        .film {
+            width: calc(100% / 5 - 10px);
+            height: 513px;
+            padding: 10px;
+            margin: 10px;
 
+            .testo {
+                background-color: black;
+                padding: 15px;
+                width: 345px;
+                height: 513px;
+                color: white;
+                position: relative;
+                bottom: 513px;
+                left: 0;
+                opacity: 0;
+                border: solid 5px white;
+
+
+                &:hover {
+                    opacity: 1;
+                    transition: 3s;
+                    transform: rotateY(360deg);
+
+                }
 
 
             }
 
 
+
         }
-
-
-
     }
 }
 </style>
