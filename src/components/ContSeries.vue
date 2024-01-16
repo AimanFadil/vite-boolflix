@@ -28,7 +28,7 @@ export default {
                         <img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`">
                         <div class="testo">
                             <h3 >TITLE: "{{ serie.name }}"</h3>
-                            <h4>ORIGINAL TITLE: {{ serie.original_name }}</h4>
+                            <h4 class="sott">ORIGINAL TITLE: {{ serie.original_name }}</h4>
                             <div> <country-flag :country='serie.original_language' size='normal'/></div>
                             <div>
                                 <span>RATING: </span>
@@ -68,6 +68,10 @@ export default {
             height: 513px;
             border: solid 5px white;
 
+        }
+
+        .sott {
+            text-decoration: underline;
         }
 
         .fa-star {

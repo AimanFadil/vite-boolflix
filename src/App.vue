@@ -1,12 +1,14 @@
 <script>
 import { store } from './store.js';
-import Header from './components/Header.vue'
+import Header from './components/Header.vue';
+import home from './components/home.vue';
 import ContFilms from './components/ContFilms.vue';
 import ContSeries from './components/ContSeries.vue';
 import axios from 'axios';
 export default {
   components: {
     Header,
+    home,
     ContFilms,
     ContSeries
   },
@@ -61,6 +63,7 @@ export default {
 <template lang="">
   <div>
     <Header @cerca="getFilms" />
+    <home/>
     <ContFilms />
     <ContSeries />
   </div>

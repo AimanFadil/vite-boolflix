@@ -27,7 +27,7 @@ export default {
                     <div class="film text-center" v-for="film, index in store.films" :key="index">
                         <img  :src="`https://image.tmdb.org/t/p/w342/${film.poster_path}`">
                         <div class="testo">
-                            <h3 >TITLE: "{{ film.title }}"</h3>
+                            <h3 class="sott" >TITLE: "{{ film.title }}"</h3>
                             <h4>ORIGINAL TITLE: {{ film.original_title }}</h4>
                             <div> <country-flag :country='film.original_language' size='normal'/></div>
                             <div>
@@ -68,6 +68,10 @@ export default {
             height: 513px;
             border: solid 5px white;
 
+        }
+
+        .sott {
+            text-decoration: underline;
         }
 
         .red {
